@@ -1,8 +1,5 @@
 """
 A plugin for conan htpasswd authentication
-
-TODO:
-* Make location of htpasswd file configurable
 """
 
 import os
