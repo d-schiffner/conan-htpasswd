@@ -5,7 +5,6 @@ A plugin for conan htpasswd authentication
 import os
 from ConfigParser import ConfigParser
 from passlib.apache import HtpasswdFile
-from conans.path import conan_expand_user
 
 def get_class():
     """ plugin entry point """
@@ -19,7 +18,7 @@ class HtpasswdAuthenticator(object):
     """
     def __init__(self):
         #try to locate the server config and load it
-        server_folder = os.path.join(conan_expand_user("~"), '.conan_server')
+        server_folder = os.path.join(os.path.expanduser("~"), '.conan_server')
         server_conf = os.path.join(server_folder, "server.conf")
         htpasswd_location = os.path.join(server_folder, "plugins", "authentication", ".htpasswd")
         if os.path.exists(server_conf):
